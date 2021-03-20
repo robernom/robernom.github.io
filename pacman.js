@@ -520,15 +520,19 @@ function printTime(){
 }
 
 function introMusic(){
+  canvas = document.getElementById('canvas');
+  ctx = canvas.getContext('2d');
   cv2 = document.getElementById('canvas2');
   ctx2 = cv2.getContext('2d');
   drawField(ctx2);
   s_Intro = document.getElementById('intro');
   s_Intro.play();
+  textCanvas(0,0, "Pacman", 1, "yellow");
   setTimeout(startGame, 3500);
 }
 
 function enterMsg(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   textCanvas(128, 310, "PRESS ENTER TO START", 25, "yellow")
   textCanvas(145, 670, "CHOOSE YOUR COLOR",25,player.color)
 }
@@ -540,13 +544,11 @@ function startGame(){
   s_Die = document.getElementById('die');
   s_Ghost = document.getElementById('ghost')
   myVideo = document.getElementById("video");
-  canvas = document.getElementById('canvas');
-  ctx = canvas.getContext('2d');
   if (!canvas) {
     console.log('Failed to retrieve the <canvas> element');
     return false;
   }
   document.addEventListener('keydown', keyDown, false);
   player = new pacman(290, 370);
-  msg = setInterval(enterMsg, 500)
+  msg = enterMsg()
 }
