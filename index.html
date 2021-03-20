@@ -1,7 +1,26 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MAZE</title>
+    <style>
+    canvas{
+      border: 5px ridge yellow;
+      float: left;
+    }
+    </style>
+  </head>
+
+  <body style="background-color: black;" onload="main()">
+		 <canvas id="webgl" width="800" height="600"
+		   style="position: absolute; left: 20%; top: 5%; z-index: 0;"></canvas>
+
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+		<script src="maze.js"></script>
+    <script src="pacman3d.js"></script>
+  </body>
 </html>
