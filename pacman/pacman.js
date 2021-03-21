@@ -405,7 +405,6 @@ function keyDown(event) {
       break;
     case "Enter":
       clearInterval(msg);
-      //ad = setTimeout(playAd, wait);
       gameResume();
       break;
     default:
@@ -433,35 +432,12 @@ function drop(ev) {
     }
 }
 
-
 function restart(){
   interval = setInterval(render, 150);
   canvas.hidden = false;
   cv2.hidden = false;
   myVideo.hidden = true;
   myVideo.pause();
-  //setTimeout(playAd, wait);
-}
-
-function addAd(){
-  if (time >= 60){
-    source = (source<4)? source+1:1;
-    time = 0;
-  }
-  myVideo.src = "videos/realizador-fuente"+source+".mp4";
-  myVideo.currentTime = time;
-  myVideo.play();
-}
-
-function playAd(){
-  clearInterval(interval);
-  canvas.hidden = true;
-  cv2.hidden = true;
-  video.hidden = true;
-  myVideo.hidden = false;
-  addAd();
-  setTimeout(restart, 10000);
-  time += 10;
 }
 
 var colors = ["magenta", "cyan", "red", "orange"];
